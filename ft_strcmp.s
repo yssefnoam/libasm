@@ -1,16 +1,16 @@
 ;; ########################################################################## ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_strlen.s                                        :+:      :+:    :+:   ;;
+;;   ft_strcmp.s                                        :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: ynoam <ynoam@student.1337.ma>              +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2020/11/27 12:51:54 by ynoam             #+#    #+#             ;;
-;;   Updated: 2020/11/27 18:25:28 by ynoam            ###   ########.fr       ;;
+;;   Created: 2020/11/27 19:49:58 by ynoam             #+#    #+#             ;;
+;;   Updated: 2020/11/27 20:58:54 by ynoam            ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ########################################################################## ;;
 
-	global _ft_strlen
+	global _ft_strcmp
 
 ;;; Constant
 
@@ -23,15 +23,27 @@
 	NULL					EQU 0
 
 	section .text
-_ft_strlen:
-	mov rax, 0
-	cmp rdi, NULL
-	je L3										; if rdi == NULL go to L3
-L2:
-	cmp [rdi], byte 0
-	je L3										; if [rdi] == 0 go to L3
-	inc rax									; counter ++
-	inc rdi
-	jmp L2
-L3:
+
+_ft_strcmp:
+	xor		rax, rax
+	mov		rax, [rdi]
+	cmp		[rsi], BYTE 0
+	je		E
+	cmp		[rsi], rax
+	jg		G
+	cmp		[rsi], rax
+	jl		L
+	inc		rsi
+	inc		rdi
+	jmp		_ft_strcmp
+E:
+	mov		rax, 0
+	ret
+
+L:
+	mov		rax, -1
+	ret
+
+G:
+	mov		rax, 1
 	ret

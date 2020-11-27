@@ -6,11 +6,16 @@
 #include <ctype.h>
 #include <math.h>
 
-extern size_t ft_strlen(char *);
+size_t ft_strlen(char *);
+int		ft_strcmp(const char *, const char *);
 
 int	main(void)
 {
-	printf("result = %ld\n",ft_strlen("hi my name is youssef noam\0"));
-	printf("result = %ld\n",   strlen("hi my name is youssef noam\0"));
+	int i;
+	int	j;
+
+	i =    strcmp("c", "c");
+	j = ft_strcmp("c", "c");
+	printf("result = dori %d\nresult = mine %d\n", i, j);
 	return (0);
 }
