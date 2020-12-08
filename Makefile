@@ -6,7 +6,7 @@
 #    By: ynoam <ynoam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/25 21:04:03 by ynoam             #+#    #+#              #
-#    Updated: 2020/12/07 19:45:49 by ynoam            ###   ########.fr        #
+#    Updated: 2020/12/08 20:38:17 by ynoam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ SRC = ft_strlen.s ft_strcmp.s ft_read.s ft_strcpy.s ft_strdup.s ft_write.s
 all: $(NAME)
 $(NAME): $(SRC)
 	###########################  Assembling...  #############################
-	nasm -f macho64 ft_strlen.s
-	nasm -f macho64 ft_strcmp.s
-	nasm -f macho64 ft_read.s
-	nasm -f macho64 ft_strcpy.s
-	nasm -f macho64 ft_strdup.s
-	nasm -f macho64 ft_write.s
+	nasm -g -f macho64 ft_strlen.s
+	nasm -g -f macho64 ft_strcmp.s
+	nasm -g -f macho64 ft_read.s
+	nasm -g -f macho64 ft_strcpy.s
+	nasm -g -f macho64 ft_strdup.s
+	nasm -g -f macho64 ft_write.s
 	ar rc $(NAME) *.o
 
 clean:

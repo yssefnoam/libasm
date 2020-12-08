@@ -6,5 +6,6 @@
 int     ft_write(int i, char *ss, int j);
 int main()
 {
-    ft_write(0,"st",3);
+    ft_write(-1,"st",4);
+    write(-1,"st",4);
 }
