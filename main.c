@@ -1,21 +1,10 @@
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
-#include <fcntl.h>
+#include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <math.h>
-
-size_t ft_strlen(char *);
-int		ft_strcmp(const char *, const char *);
-
-int	main(void)
+#include <errno.h>
+int     ft_write(int i, char *ss, int j);
+int main()
 {
-	int i;
-	int	j;
-
-	i =    strcmp("c", "c");
-	j = ft_strcmp("c", "c");
-	printf("result = dori %d\nresult = mine %d\n", i, j);
-	return (0);
+    ft_write(0,"st",3);
 }
