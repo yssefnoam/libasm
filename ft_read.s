@@ -1,17 +1,23 @@
 	global _ft_read
+	extern ___error
 
 ;;; Constant
 
-	SYS_EXIT			EQU 0x2000001
-	SYS_WRITE			EQU 0x2000004
-	SYS_READ			EQU 0x2000005
-	STDIN				EQU 0
-	STDOUT				EQU 1
-	EXIT_SUCCESS		EQU 0
-	NULL				EQU 0
+	SYS_READ		EQU 0x2000003
+	EXIT_ERROR		EQU -1
 
 	section .text
 
 _ft_read:
-	xor		rax, rax
+	mov		rax, SYS_READ
+	syscall
+	jc 		error
+	ret
+error:
+	push	rax
+	call	___error
+	pop		rbx
+	mov		[rax], rbx
+	mov		rax, EXIT_ERROR
+	mov		rbx, 0
 	ret
