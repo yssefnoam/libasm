@@ -17,9 +17,9 @@ _ft_strcmp:
 
 end:
 	cmp		al, bl
-	jg		positive
+	ja		positive
 	cmp		al, bl
-	jl		negative
+	jb		negative
 	mov		rax, 0
 	ret
 
